@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdBuddiz.Xamarin.iOS", "AdBuddiz.Xamarin.iOS/AdBuddiz.Xamarin.iOS.csproj", "{EE66392A-26A0-4636-AAA3-E33DF1997CBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdBuddiz.Xamarin.iOS", "AdBuddiz.Xamarin/AdBuddiz.Xamarin.iOS.csproj", "{EE66392A-26A0-4636-AAA3-E33DF1997CBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

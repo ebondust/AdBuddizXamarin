@@ -3,8 +3,9 @@ using System.Drawing;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using AdBuddiz.Xamarin;
 
-namespace AdBuddiz.Xamarin.Ios.Internal
+namespace AdBuddiz.Xamarin.Internal
 {
    [BaseType (typeof (NSObject))]
    interface AdBuddiz

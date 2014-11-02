@@ -45,16 +45,16 @@
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums.iOs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="AdBuddizHandler.cs" />
-    <Compile Include="AdBuddizErrorEventArgs.cs" />
     <Compile Include="IAdBuddizDelegate.cs" />
     <Compile Include="Lib\libAdBuddiz.linkwith.cs">
       <DependentUpon>libAdBuddiz.a</DependentUpon>
     </Compile>
+    <Compile Include="AdBuddizHandler.iOs.cs" />
+    <Compile Include="AdBuddizErrorEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="Lib\libAdBuddiz.a" />

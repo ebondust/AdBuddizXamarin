@@ -1,12 +1,12 @@
 ﻿using System;
 using MonoTouch.Foundation;
-using AdBuddiz.Xamarin.Ios;
+using AdBuddiz.Xamarin;
 
-namespace AdBuddiz.Xamarin.Ios
+namespace AdBuddiz.Xamarin
 {
     public class AdBuddizHandler
     {
-        class AdBuddizDelegateImpl : AdBuddiz.Xamarin.Ios.Internal.AdBuddizDelegate
+        class AdBuddizDelegateImpl : AdBuddiz.Xamarin.Internal.AdBuddizDelegate
         {
             public event EventHandler CacheAd;
             public event EventHandler Click;
@@ -153,50 +153,50 @@ namespace AdBuddiz.Xamarin.Ios
 
         private AdBuddizHandler()
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.SetDelegate(_delegate);
+            AdBuddiz.Xamarin.Internal.AdBuddiz.SetDelegate(_delegate);
         }
 
         public void SetLogLevel(ABLogLevel level)
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.SetLogLevel(level);
+            AdBuddiz.Xamarin.Internal.AdBuddiz.SetLogLevel(level);
         }
 
         public void SetPublisherKey(string publisherKey)
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.SetPublisherKey(publisherKey);
+            AdBuddiz.Xamarin.Internal.AdBuddiz.SetPublisherKey(publisherKey);
         }
 
         public void SetTestModeActive()
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.SetTestModeActive();
+            AdBuddiz.Xamarin.Internal.AdBuddiz.SetTestModeActive();
         }
 
         public void CacheAds()
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.CacheAds();
+            AdBuddiz.Xamarin.Internal.AdBuddiz.CacheAds();
         }
 
         public bool IsReadyToShowAd 
         {
             get 
             {
-                return AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.IsReadyToShowAd();
+                return AdBuddiz.Xamarin.Internal.AdBuddiz.IsReadyToShowAd();
             }
         }
 
         public bool IsReadyToShowAdWithPlacement(string placement)
         {
-            return AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.IsReadyToShowAd(placement);
+            return AdBuddiz.Xamarin.Internal.AdBuddiz.IsReadyToShowAd(placement);
         }
 
         public void ShowAd()
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.ShowAd();
+            AdBuddiz.Xamarin.Internal.AdBuddiz.ShowAd();
         }
 
         public void ShowAd(string placement)
         {
-            AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.ShowAd(placement);
+            AdBuddiz.Xamarin.Internal.AdBuddiz.ShowAd(placement);
         }
 
         public void SetDelegate(IAdBuddizDelegate delegateObj)
@@ -206,7 +206,7 @@ namespace AdBuddiz.Xamarin.Ios
 
         public String NameForError(AdBuddizError error)
         {
-            return AdBuddiz.Xamarin.Ios.Internal.AdBuddiz.NameForError(error);
+            return AdBuddiz.Xamarin.Internal.AdBuddiz.NameForError(error);
         }
     }
 }

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdBuddiz.Xamarin.Android", "AdBuddiz.Xamarin\AdBuddiz.Xamarin.Android.csproj", "{FA36546F-FA98-4BAB-B215-DCDA663D46B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidSample", "AndroidSample\AndroidSample.csproj", "{1BF87BA0-386D-4D34-ADF0-91F48D38EA51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BF87BA0-386D-4D34-ADF0-91F48D38EA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF87BA0-386D-4D34-ADF0-91F48D38EA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF87BA0-386D-4D34-ADF0-91F48D38EA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF87BA0-386D-4D34-ADF0-91F48D38EA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA36546F-FA98-4BAB-B215-DCDA663D46B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA36546F-FA98-4BAB-B215-DCDA663D46B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA36546F-FA98-4BAB-B215-DCDA663D46B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA36546F-FA98-4BAB-B215-DCDA663D46B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = AndroidSample\AndroidSample.csproj
+	EndGlobalSection
+EndGlobal
