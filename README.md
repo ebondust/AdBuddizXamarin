@@ -7,3 +7,5 @@ Update `AdBuddiz.Xamarin/Lib/libAdBuddiz.a` with the newest AdBuddiz .a library 
 
 Update `AdBuddiz.Xamarin/Jars/AdBuddiz.jar` with the newest AdBuddiz jar for Android.
 
+
+For iOS version - always Rebuild - second time build fails (If anyone has idea why, please let me know).
