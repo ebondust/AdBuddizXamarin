@@ -10,28 +10,50 @@ using AdBuddiz.Xamarin;
 
 namespace AndroidSample
 {
-    [Activity(Label = "AndroidSample", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "AdBuddiz Sample", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            AdBuddizHandler.Instance.SetPublisherKey(this, "");
-            AdBuddizHandler.Instance.SetTestModeActive();
+			SetContentView(Resource.Layout.Main);
 
+			AdBuddizHandler.Instance.SetLogLevel(ABLogLevel.ABLogLevelInfo);
+			AdBuddizHandler.Instance.SetPublisherKey(this, "TEST_PUBLISHER_KEY");
+			AdBuddizHandler.Instance.SetTestModeActive();
+			AdBuddizHandler.Instance.CacheAds();
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
+			Button button = FindViewById<Button>(Resource.Id.button);
+			button.Click += delegate
+			{
+				AdBuddizHandler.Instance.ShowAd();
+			};
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
-            
-            button.Click += delegate
-            {
-                AdBuddizHandler.Instance.ShowAd();
-            };
+			AdBuddizHandler.Instance.DidCacheAd += delegate
+			{
+				Toast.MakeText(this, "DidCasheAd", ToastLength.Short).Show();
+			};
+
+			AdBuddizHandler.Instance.DidClick += delegate
+			{
+				Toast.MakeText(this, "DidClick", ToastLength.Short).Show();
+			};
+
+			AdBuddizHandler.Instance.DidShowAd += delegate
+			{
+				Toast.MakeText(this, "DidShowAd", ToastLength.Short).Show();
+			};
+
+			AdBuddizHandler.Instance.DidHideAd += delegate
+			{
+				Toast.MakeText(this, "DidHideAd", ToastLength.Short).Show();
+			};
+
+			AdBuddizHandler.Instance.DidFailToShowAd += (o,e)=>
+			{
+				Toast.MakeText(this, e.ErrorDescription, ToastLength.Short).Show();
+			};
         }
     }
 }

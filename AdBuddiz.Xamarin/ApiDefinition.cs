@@ -12,7 +12,7 @@ namespace AdBuddiz.Xamarin.Internal
    {
       [Static]
       [Export ("setLogLevel:")]
-      void SetLogLevel(ABLogLevel level);
+      void SetLogLevel(int level);
 
       [Static]
       [Export ("setPublisherKey:")]
@@ -44,11 +44,11 @@ namespace AdBuddiz.Xamarin.Internal
 
       [Static]
       [Export ("setDelegate:")]
-      void SetDelegate(AdBuddizDelegate delegateObj);
+      void SetDelegate(NSObject delegateObj);
 
       [Static]
       [Export ("nameForError:")]
-      string NameForError(AdBuddizError error);
+      string NameForError(int error);
    }
 }
 

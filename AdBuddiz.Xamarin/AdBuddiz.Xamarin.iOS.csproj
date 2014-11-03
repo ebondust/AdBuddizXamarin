@@ -8,7 +8,7 @@
     <ProjectGuid>{EE66392A-26A0-4636-AAA3-E33DF1997CBC}</ProjectGuid>
     <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>AdBuddiz.Xamarin.Ios.Internal</RootNamespace>
+    <RootNamespace>AdBuddiz.Xamarin</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>AdBuddiz.Xamarin.iOs</AssemblyName>
     <ReleaseVersion>0.5</ReleaseVersion>
@@ -19,20 +19,20 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__IOS__</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>__IOS__</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,9 +44,6 @@
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingCoreSource Include="StructsAndEnums.iOs.cs" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
   <ItemGroup>
     <Compile Include="IAdBuddizDelegate.cs" />
@@ -55,6 +52,8 @@
     </Compile>
     <Compile Include="AdBuddizHandler.iOs.cs" />
     <Compile Include="AdBuddizErrorEventArgs.cs" />
+    <Compile Include="ABLogLevel.cs" />
+    <Compile Include="AdBuddizError.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="Lib\libAdBuddiz.a" />

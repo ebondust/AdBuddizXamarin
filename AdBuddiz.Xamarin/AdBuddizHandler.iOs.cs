@@ -6,7 +6,8 @@ namespace AdBuddiz.Xamarin
 {
     public class AdBuddizHandler
     {
-        class AdBuddizDelegateImpl : AdBuddiz.Xamarin.Internal.AdBuddizDelegate
+        [Register ("AdBuddizDelegate"), Model]
+        class AdBuddizDelegateImpl : NSObject
         {
             public event EventHandler CacheAd;
             public event EventHandler Click;
@@ -16,7 +17,8 @@ namespace AdBuddiz.Xamarin
 
             public IAdBuddizDelegate Delegate { get; set; }
 
-            protected override void DidCacheAd()
+            [Export ("didCacheAd")]
+            protected void DidCacheAd()
             {
                 if (CacheAd != null) 
                 {
@@ -29,7 +31,8 @@ namespace AdBuddiz.Xamarin
                 }
             }
 
-            protected override void DidClick()
+            [Export ("didClick")]
+            protected void DidClick()
             {
                 if (Click != null) 
                 {
@@ -42,7 +45,8 @@ namespace AdBuddiz.Xamarin
                 }
             }
 
-            protected override void DidHideAd()
+            [Export ("didHideAd")]
+            protected void DidHideAd()
             {
                 if (HideAd != null) 
                 {
@@ -55,7 +59,8 @@ namespace AdBuddiz.Xamarin
                 }
             }
 
-            protected override void DidShowAd()
+            [Export ("didShowAd")]
+            protected void DidShowAd()
             {
                 if (ShowAd != null) 
                 {
@@ -68,9 +73,10 @@ namespace AdBuddiz.Xamarin
                 }
             }
 
-            protected override void DidFailToShowAd(AdBuddizError error)
+            [Export ("didFailToShowAd:")]
+            protected void DidFailToShowAd(AdBuddizError error)
             {
-                if (FailToShowAd != null) 
+                if (FailToShowAd != null)
                 {
                     FailToShowAd(this, new AdBuddizErrorEventArgs(error));
                 }
@@ -158,7 +164,7 @@ namespace AdBuddiz.Xamarin
 
         public void SetLogLevel(ABLogLevel level)
         {
-            AdBuddiz.Xamarin.Internal.AdBuddiz.SetLogLevel(level);
+            AdBuddiz.Xamarin.Internal.AdBuddiz.SetLogLevel((int)level);
         }
 
         public void SetPublisherKey(string publisherKey)
@@ -206,7 +212,7 @@ namespace AdBuddiz.Xamarin
 
         public String NameForError(AdBuddizError error)
         {
-            return AdBuddiz.Xamarin.Internal.AdBuddiz.NameForError(error);
+            return AdBuddiz.Xamarin.Internal.AdBuddiz.NameForError((int)error);
         }
     }
 }

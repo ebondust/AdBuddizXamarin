@@ -25,7 +25,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Library</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -42,9 +41,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IAdBuddizDelegate.cs" />
-    <Compile Include="AdBuddizErrorEventArgs.Android.cs" />
     <Compile Include="AdBuddizHandler.Android.cs" />
-    <Compile Include="StructsAndEnums.Android.cs" />
+    <Compile Include="AdBuddizErrorEventArgs.cs" />
+    <Compile Include="ABLogLevel.cs" />
+    <Compile Include="AdBuddizError.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
