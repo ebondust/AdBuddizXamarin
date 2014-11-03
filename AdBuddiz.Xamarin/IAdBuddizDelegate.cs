@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AdBuddiz.Xamarin
+﻿namespace AdBuddiz.Xamarin
 {
    public interface IAdBuddizDelegate
    {
