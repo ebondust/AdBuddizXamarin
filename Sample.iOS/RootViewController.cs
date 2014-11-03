@@ -6,7 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using AdBuddiz.Xamarin;
 
-namespace IosSample
+namespace Sample.iOs
 {
     public partial class RootViewController : UIViewController
     {

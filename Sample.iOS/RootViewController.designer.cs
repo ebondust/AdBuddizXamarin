@@ -5,7 +5,7 @@
 //
 using MonoTouch.Foundation;
 
-namespace IosSample
+namespace Sample.iOs
 {
     [Register("RootViewController")]
     partial class RootViewController

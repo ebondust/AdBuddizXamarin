@@ -12,7 +12,7 @@
     
     <application android:label="AdBuddizSample" android:icon="@drawable/icon">
     
-    <activity android:name="androidsample.MainActivity">
+    <activity android:name="sample.android.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

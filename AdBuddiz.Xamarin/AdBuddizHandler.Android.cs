@@ -193,9 +193,8 @@ namespace AdBuddiz.Xamarin
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.SetLogLevel(logLevel);
         }
 
-        public void SetPublisherKey(Activity activity, string publisherKey)
+        public void SetPublisherKey(string publisherKey)
         {
-            _activity = activity;
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.SetPublisherKey(publisherKey);
         }
 
@@ -204,8 +203,9 @@ namespace AdBuddiz.Xamarin
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.SetTestModeActive();
         }
 
-        public void CacheAds()
+		public void CacheAds(Activity activity)
         {
+			_activity = activity;
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.CacheAds(_activity);
         }
 
