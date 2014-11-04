@@ -2,9 +2,9 @@
 ---
 AdBuddiz plugin for Xamarin.iOS and Xamarin.Android.
 
-Update `AdBuddiz.Xamarin/Lib/libAdBuddiz.a` with the newest AdBuddiz .a library for iOS.
+Update`AdBuddiz.Xamarin/Lib/libAdBuddiz.a`with the newest AdBuddiz .a library for iOS.
 
-Update `AdBuddiz.Xamarin/Jars/AdBuddiz.jar` with the newest AdBuddiz jar for Android.
+Update`AdBuddiz.Xamarin/Jars/AdBuddiz.jar`with the newest AdBuddiz jar for Android.
 
 
 # MANUAL
@@ -12,9 +12,9 @@ Update `AdBuddiz.Xamarin/Jars/AdBuddiz.jar` with the newest AdBuddiz jar for And
 
 # 1. Add reference to your app.
 
-Add reference to `Xamarin.iOs.dll` in your iOS project.
+Add reference to`Xamarin.iOs.dll`in your iOS project.
 
-Add reference to `Xamarin.Android.dll` in your Android project.
+Add reference to`Xamarin.Android.dll`in your Android project.
 
 # 2. Configure SDK
 
@@ -22,7 +22,7 @@ Add reference to `Xamarin.Android.dll` in your Android project.
 
 ### iOS
 
-In your `AppDelegate`, add `using` statement, override `OnActivated` and add following code:
+In your`AppDelegate`, add`using`statement, override`OnActivated`and add following code:
 
 	using AdBuddiz.Xamarin;
 
@@ -48,7 +48,7 @@ Add the following permissions:
    	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 #### ii. Add AdBuddiz Activity
-In the `<application ...>` part, add the following Activity with its **mandatory** theme:
+In the`<application ...>`part, add the following Activity with its **mandatory** theme:
 
 	<application ...>
      ...
@@ -71,12 +71,12 @@ You should request to cache ads as soon as your app starts. In the first created
 	}
 
 ## b) Optional - Test Mode
-You can activate test mode by calling the following code **before** `CasheAds` call:
+You can activate test mode by calling the following code **before**`CasheAds`call:
 	
 	AdBuddizHandler.Instance.SetTestModeActive();
 
 ## c) Optional - Logs
-You can control the AdBuddiz SDK log level by calling the following code before `CacheAds` call:
+You can control the AdBuddiz SDK log level by calling the following code before`CacheAds`call:
 
 	AdBuddizHandler.Instance.SetLogLevel(ABLogLevel.ABLogLevelInfo); // or ABLogLevelError, ABLogLevelSilent
 
@@ -104,7 +104,7 @@ In order to get more information about the SDK behavior, you can register event 
 
 ## c) Optional - Request SDK Status
 
-To know if the SDK will be able to display an ad, you can call `IsReadyToShowAd`.
+You can call`IsReadyToShowAd` to know if the SDK will be able to display an ad.
 
 	if (AdBuddizHandler.Instance.IsReadyToShowAd) 
 	{
