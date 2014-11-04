@@ -22,7 +22,7 @@ Add reference to `Xamarin.Android.dll` in your Android project.
 
 ### iOS
 
-In your `AppDelegate`, add `using` statement and override `OnActivated`:
+In your `AppDelegate`, add `using` statement, override `OnActivated` and add following code:
 
 	using AdBuddiz.Xamarin;
 
