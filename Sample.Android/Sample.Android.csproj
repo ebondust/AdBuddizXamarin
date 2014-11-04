@@ -45,7 +45,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="AdBuddiz.Xamarin.Android">
-      <HintPath>..\AdBuddiz.Bin\AdBuddiz.Xamarin.Android.dll</HintPath>
+      <HintPath>..\AdBuddiz\AdBuddiz.Xamarin.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

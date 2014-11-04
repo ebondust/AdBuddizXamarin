@@ -87,7 +87,7 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
     <Reference Include="AdBuddiz.Xamarin.iOs">
-      <HintPath>..\AdBuddiz.Bin\AdBuddiz.Xamarin.iOs.dll</HintPath>
+      <HintPath>..\AdBuddiz\AdBuddiz.Xamarin.iOs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
