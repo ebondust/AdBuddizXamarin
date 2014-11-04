@@ -104,7 +104,7 @@ In order to get more information about the SDK behavior, you can register event 
 
 ## c) Optional - Request SDK Status
 
-You can call`IsReadyToShowAd` to know if the SDK will be able to display an ad.
+You can call`IsReadyToShowAd`to check if the SDK will be able to display an ad.
 
 	if (AdBuddizHandler.Instance.IsReadyToShowAd) 
 	{
