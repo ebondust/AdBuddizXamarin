@@ -84,7 +84,7 @@ You can control the AdBuddiz SDK log level by calling the following code before 
 
 ## a) Show ad
 
-Wherever you want to display an ad, add the following import and SDK call:
+Wherever you want to display an ad, add the following SDK call:
 	
 	AdBuddizHandler.Instance.ShowAd();
 
