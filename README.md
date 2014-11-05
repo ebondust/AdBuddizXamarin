@@ -24,28 +24,32 @@ Add reference to`Xamarin.Android.dll`in your Android project.
 
 In your`AppDelegate`, add`using`statement, override`OnActivated`and add following code:
 
-	using AdBuddiz.Xamarin;
+```c#
+using AdBuddiz.Xamarin;
 
-	public override void OnActivated(UIApplication application) 
-	{
-		// don't call base!
-		...
-		AdBuddizHandler.Instance.SetPublisherKey("TEST_PUBLISHER_KEY");
- 		AdBuddizHandler.Instance.CacheAds();
-		...
-	}
+public override void OnActivated(UIApplication application) 
+{
+	// don't call base!
+	...
+	AdBuddizHandler.Instance.SetPublisherKey("TEST_PUBLISHER_KEY");
+ 	AdBuddizHandler.Instance.CacheAds();
+	...
+}
+```
 
 ### Android
 
 #### i. Add permissions
 Add the following permissions:
 
-	<!-- Mandatory permission -->
-   	<uses-permission android:name="android.permission.INTERNET" />
+```xml
+<!-- Mandatory permission -->
+   <uses-permission android:name="android.permission.INTERNET" />
 
-	<!-- Optional, but without them, you might get less ads and tracking could be less accurate -->
-   	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-   	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<!-- Optional, but without them, you might get less ads and tracking could be less accurate -->
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+```
 
 #### ii. Add AdBuddiz Activity
 In the`<application ...>`part, add the following Activity with its **mandatory** theme:
