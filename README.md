@@ -54,30 +54,36 @@ Add the following permissions:
 #### ii. Add AdBuddiz Activity
 In the`<application ...>`part, add the following Activity with its **mandatory** theme:
 
-	<application ...>
-     ...
-     <activity android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity" 
-               android:theme="@android:style/Theme.Translucent" />
-   	</application>
+```xml
+<application ...>
+...
+	<activity android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
+		android:theme="@android:style/Theme.Translucent" />
+</application>
+```
 
 #### iii. Configure and initialize SDK.
 You should request to cache ads as soon as your app starts. In the first created Activity of your app, add the following lines:
 
-	using AdBuddiz.Xamarin;
+```c#
+using AdBuddiz.Xamarin;
 
-	protected override void OnCreate(Bundle bundle) 
-	{
-		base.OnCreate(bundle);
-		...
-		AdBuddizHandler.Instance.SetPublisherKey("TEST_PUBLISHER_KEY");
-		AdBuddizHandler.Instance.CacheAds(this);
-		...		
-	}
+protected override void OnCreate(Bundle bundle) 
+{
+	base.OnCreate(bundle);
+	...
+	AdBuddizHandler.Instance.SetPublisherKey("TEST_PUBLISHER_KEY");
+	AdBuddizHandler.Instance.CacheAds(this);
+	...		
+}
+```
 
 ## b) Optional - Test Mode
 You can activate test mode by calling the following code **before**`CasheAds`call:
-	
-	AdBuddizHandler.Instance.SetTestModeActive();
+
+```c#	
+AdBuddizHandler.Instance.SetTestModeActive();
+```
 
 ## c) Optional - Logs
 You can control the AdBuddiz SDK log level by calling the following code before`CacheAds`call:
@@ -90,27 +96,33 @@ You can control the AdBuddiz SDK log level by calling the following code before`
 
 Wherever you want to display an ad, add the following SDK call:
 	
-	AdBuddizHandler.Instance.ShowAd();
+```c#
+AdBuddizHandler.Instance.ShowAd();
+```
 
 ## b) Optional - Events
 In order to get more information about the SDK behavior, you can register event handlers. Event handlers can be added or removed at any time.
-	
-	AdBuddizHandler.Instance.DidCacheAd += delegate { Console.WriteLine("DidCacheAd!"); };
- 	AdBuddizHandler.Instance.DidShowAd += delegate { Console.WriteLine("DidShowAd!"); };
- 	AdBuddizHandler.Instance.DidClickAd += delegate{ Console.WriteLine("DidClickAd!"); };
- 	AdBuddizHandler.Instance.DidHideAd += delegate { Console.WriteLine("DidHideAd!"); };
 
- 	AdBuddizHandler.Instance.DidFailToShowAd += (s,e) => 
-	{ 
-    	Console.WriteLine("DidFailToShowAd!");
-    	Console.WriteLine("error="+e.ErrorDescription);
- 	};
+```c#	
+AdBuddizHandler.Instance.DidCacheAd += delegate { Console.WriteLine("DidCacheAd!"); };
+AdBuddizHandler.Instance.DidShowAd += delegate { Console.WriteLine("DidShowAd!"); };
+AdBuddizHandler.Instance.DidClickAd += delegate{ Console.WriteLine("DidClickAd!"); };
+AdBuddizHandler.Instance.DidHideAd += delegate { Console.WriteLine("DidHideAd!"); };
+
+AdBuddizHandler.Instance.DidFailToShowAd += (s,e) => 
+{ 
+    Console.WriteLine("DidFailToShowAd!");
+    Console.WriteLine("error="+e.ErrorDescription);
+};
+```
 
 ## c) Optional - Request SDK Status
 
 You can call`IsReadyToShowAd`to check if the SDK will be able to display an ad.
 
-	if (AdBuddizHandler.Instance.IsReadyToShowAd) 
-	{
-      ...
-   	}
+```c#
+if (AdBuddizHandler.Instance.IsReadyToShowAd) 
+{
+	...
+}
+```
