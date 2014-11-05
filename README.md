@@ -44,11 +44,11 @@ Add the following permissions:
 
 ```xml
 <!-- Mandatory permission -->
-   <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.INTERNET" />
 
 <!-- Optional, but without them, you might get less ads and tracking could be less accurate -->
-   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
 
 #### ii. Add AdBuddiz Activity
