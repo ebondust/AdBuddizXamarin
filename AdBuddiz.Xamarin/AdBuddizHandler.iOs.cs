@@ -1,5 +1,5 @@
 ﻿using System;
-using MonoTouch.Foundation;
+using Foundation;
 using AdBuddiz.Xamarin;
 
 namespace AdBuddiz.Xamarin

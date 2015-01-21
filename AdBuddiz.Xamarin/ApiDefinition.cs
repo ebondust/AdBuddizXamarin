@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using ObjCRuntime;
+using Foundation;
+using UIKit;
 using AdBuddiz.Xamarin;
 
 namespace AdBuddiz.Xamarin.Internal
