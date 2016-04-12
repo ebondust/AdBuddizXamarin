@@ -6,22 +6,27 @@ namespace AdBuddiz.Xamarin
 {
     public class AdBuddizHandler
     {
-        class AdBuddizDelegateImpl : Java.Lang.Object, Com.Purplebrain.Adbuddiz.Sdk.IAdBuddizDelegate
+        class AdBuddizDelegateImpl : Java.Lang.Object, Com.Purplebrain.Adbuddiz.Sdk.IAdBuddizDelegate, Com.Purplebrain.Adbuddiz.Sdk.IAdBuddizRewardedVideoDelegate
         {
             public event EventHandler CacheAd;
             public event EventHandler Click;
             public event EventHandler HideAd;
             public event EventHandler ShowAd;
+
+            //rewardedVideo handlers
+            public event EventHandler Complete;
+           // public event EventHandler Fail;
+            public event EventHandler Fetch;
+            public event EventHandler NotComplete;
+
             public event EventHandler<AdBuddizErrorEventArgs> FailToShowAd;
 
             public IAdBuddizDelegate Delegate { get; set; }
+            public IAdBuddizRewardedVideoDelegate DelegateR { get; set; }
 
             public void DidCacheAd()
             {
-                if (CacheAd != null) 
-                {
-                    CacheAd(this, EventArgs.Empty);
-                }
+                CacheAd?.Invoke(this, EventArgs.Empty);
 
                 if (Delegate != null) 
                 {
@@ -31,10 +36,7 @@ namespace AdBuddiz.Xamarin
 
             public void DidClick()
             {
-                if (Click != null) 
-                {
-                    Click(this, EventArgs.Empty);
-                }
+                Click?.Invoke(this, EventArgs.Empty);
 
                 if (Delegate != null) 
                 {
@@ -44,10 +46,7 @@ namespace AdBuddiz.Xamarin
 
             public void DidHideAd()
             {
-                if (HideAd != null) 
-                {
-                    HideAd(this, EventArgs.Empty);
-                }
+                HideAd?.Invoke(this, EventArgs.Empty);
 
                 if (Delegate != null) 
                 {
@@ -57,16 +56,53 @@ namespace AdBuddiz.Xamarin
 
             public void DidShowAd()
             {
-                if (ShowAd != null) 
-                {
-                    ShowAd(this, EventArgs.Empty);
-                }
+                ShowAd?.Invoke(this, EventArgs.Empty);
 
                 if (Delegate != null) 
                 {
                     Delegate.DidShowAd();
                 }
             }
+
+
+            // rewarded video
+            public void DidComplete()
+            {
+                Complete?.Invoke(this, EventArgs.Empty);
+
+                if (Delegate != null)
+                {
+                    DelegateR.DidComplete();
+                }
+            }
+
+            public void DidFail(Com.Purplebrain.Adbuddiz.Sdk.AdBuddizRewardedVideoError p0)
+            {
+                //throw new NotImplementedException();
+            }
+
+            public void DidFetch()
+            {
+                Fetch?.Invoke(this, EventArgs.Empty);
+
+                if (Delegate != null)
+                {
+                    DelegateR.DidFetch();
+                }
+            }
+
+            public void DidNotComplete()
+            {
+                NotComplete?.Invoke(this, EventArgs.Empty);
+
+                if (Delegate != null)
+                {
+                    DelegateR.DidNotComplete();
+                }
+            }
+
+            //end
+
 
             public void DidFailToShowAd(Com.Purplebrain.Adbuddiz.Sdk.AdBuddizError error)
             {
@@ -87,10 +123,7 @@ namespace AdBuddiz.Xamarin
                 else if(error ==  Com.Purplebrain.Adbuddiz.Sdk.AdBuddizError.UnknownExceptionRaised) errorEnum = AdBuddizError.UnknownExceptionRaised;
                 else if(error ==  Com.Purplebrain.Adbuddiz.Sdk.AdBuddizError.UnsupportedAndroidSdk) errorEnum = AdBuddizError.UnsupportedAndroidSdk;
 
-                if (FailToShowAd != null) 
-                {
-                    FailToShowAd(this, new AdBuddizErrorEventArgs(errorEnum));
-                }
+                FailToShowAd?.Invoke(this, new AdBuddizErrorEventArgs(errorEnum));
 
                 if (Delegate != null) 
                 {
@@ -98,6 +131,8 @@ namespace AdBuddiz.Xamarin
                 }
             }
         }
+
+
 
         public static readonly AdBuddizHandler Instance = new AdBuddizHandler();
 
@@ -166,6 +201,50 @@ namespace AdBuddiz.Xamarin
             }
         }
 
+
+        // rewarded ads
+
+        public event EventHandler DidComplete
+        {
+            add
+            {
+                _delegate.Complete += value;
+            }
+
+            remove
+            {
+                _delegate.Complete -= value;
+            }
+        }
+
+        public event EventHandler DidFetch
+        {
+            add
+            {
+                _delegate.Fetch += value;
+            }
+
+            remove
+            {
+                _delegate.Fetch -= value;
+            }
+        }
+
+       
+
+        public event EventHandler DidNotComplete
+        {
+            add
+            {
+                _delegate.NotComplete += value;
+            }
+
+            remove
+            {
+                _delegate.NotComplete -= value;
+            }
+        }
+
         private AdBuddizDelegateImpl _delegate = new AdBuddizDelegateImpl();
 
         private Activity _activity = null;
@@ -173,6 +252,7 @@ namespace AdBuddiz.Xamarin
         private AdBuddizHandler()
         {
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.Delegate = _delegate;
+            Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.RewardedVideo.Delegate = _delegate;
         }
 
         public void SetLogLevel(ABLogLevel level)
@@ -209,11 +289,25 @@ namespace AdBuddiz.Xamarin
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.CacheAds(_activity);
         }
 
+        public void FetchRewardedAds(Activity activity)
+        {
+            _activity = activity;
+            Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.RewardedVideo.Fetch(_activity);
+        }
+
         public bool IsReadyToShowAd 
         {
             get 
             {
                 return Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.IsReadyToShowAd(_activity);
+            }
+        }
+
+        public bool IsReadyToShowRewardedAd
+        {
+            get
+            {
+                return Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.RewardedVideo.IsReadyToShow(_activity);
             }
         }
 
@@ -227,6 +321,11 @@ namespace AdBuddiz.Xamarin
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.ShowAd(_activity);
         }
 
+        public void ShowRewardedAd()
+        {
+            Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.RewardedVideo.Show(_activity);
+        }
+
         public void ShowAd(string placement)
         {
             Com.Purplebrain.Adbuddiz.Sdk.AdBuddiz.ShowAd(_activity, placement);
@@ -235,12 +334,21 @@ namespace AdBuddiz.Xamarin
         public void SetDelegate(IAdBuddizDelegate delegateObj)
         {
             _delegate.Delegate = delegateObj;
+            
+        }
+        public void SetDelegate(IAdBuddizRewardedVideoDelegate delegateObj)
+        {
+            _delegate.DelegateR = delegateObj;
         }
 
         public String NameForError(AdBuddizError error)
         {
             return error.ToString();
         }
+
+
+      
+
     }
 }
 
