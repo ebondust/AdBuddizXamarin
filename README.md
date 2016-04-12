@@ -1,6 +1,7 @@
 # AdBuddizXamarin
 ---
-// This fork adds support for rewarded video ads.
+// This fork adds support for rewarded video ads on android.
+
 AdBuddiz plugin for Xamarin.iOS and Xamarin.Android.
 
 Update`AdBuddiz.Xamarin/Lib/libAdBuddiz.a`with the newest AdBuddiz .a library for iOS.
